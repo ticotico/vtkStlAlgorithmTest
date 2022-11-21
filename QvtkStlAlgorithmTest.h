@@ -9,6 +9,10 @@
 class vtkPolyDataMapper;
 class vtkActor;
 class InteractorStyleMouseListener;
+class vtkSTLReader;
+class vtkConnectivityFilter;
+class vtkPointLocator;
+
 class QvtkStlAlgorithmTest : public QMainWindow
 {
     Q_OBJECT
@@ -23,4 +27,7 @@ private:
     using DisplayWidgetType = QVTKDisplayWidget<vtkPolyDataMapper, vtkActor>;
     std::unique_ptr<DisplayWidgetType> m_displayWidget;
     vtkSmartPointer<InteractorStyleMouseListener> m_mouseListener;
+    vtkSmartPointer<vtkSTLReader> m_stlReader;
+    vtkSmartPointer<vtkConnectivityFilter> m_connectivity;
+    vtkSmartPointer<vtkPointLocator> m_locator;
 };
